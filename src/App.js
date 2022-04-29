@@ -1,9 +1,14 @@
 import './App.css';
+import Header from './Shared/Header/Header';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <h2>My new project</h2>
+    <div>
+      <Header></Header>
+      <Routes>
+        <Route></Route>
+      </Routes>
     </div>
   );
 }
