@@ -1,56 +1,92 @@
 [
     {
         "id": 1,
-        "name": "STANDING BARBELL",
+        "name": "LAPTOP",
         "price": "300",
-        "quantity": "10",
-        "supplier": "Fahim Corporation",
+        "quantity": "25",
+        "supplier": "Rayans Distributer",
         "description": "Hola a Barbell with an overhand grip in a standing position. Your feet should be shoulder-width apart and i will train properly",
-        "img": "https://i.ibb.co/MVnPgG9/gym1.jpg"
+        "img": "https://i.ibb.co/fpFwPYP/llll-1.png"
     },
     {
         "id": 2,
-        "name": "BARBELL OVERHEAD PRESS",
+        "name": "LED TV",
         "price": "100",
-        "quantity": "10",
-        "supplier": "Fahim Corporation",
+        "quantity": "30",
+        "supplier": "Genious Exporter Ltd",
         "description": "Press the barbell by keeping it positioned in the meat of the hands and driving it directly overhead. I will supervise you with safety",
-        "img": "https://i.ibb.co/ZG8KgXC/gym2.jpg"
+        "img": "https://i.ibb.co/gSR8vgK/tv-1.png"
     },
     {
         "id": 3,
-        "name": "SHOULDER WORKOUT",
+        "name": "KITCHEN FREEZ",
         "price": "150",
         "quantity": "10",
-        "supplier": "Fahim Corporation",
-        "description": "Set your feet shoulder-width apart. Let the dumbbells hang straight down from shoulders, your palms facing each other, with arms slightly bent.",
-        "img": "https://i.ibb.co/9vp42fz/gym3.png"
+        "supplier": "Frozen Bean",
+        "description": "Set your feet shoulder-width apart. Let the dumbbells hang straight down from shoulders, your palms facing each other, with arms.",
+        "img": "https://i.ibb.co/vjJDypp/friz-1.png"
     },
     {
         "id": 4,
-        "name": "STICK TO THE BASIC",
+        "name": "WASHING MACHINE",
         "price": "180",
-        "quantity": "10",
-        "supplier": "Fahim Corporation",
+        "quantity": "27",
+        "supplier": "Safe Trading Industria",
         "description": "What you need is to stick to the basic principles of preparation, success will follow. Start with planning",
-        "img": "https://i.ibb.co/3zqfjG2/gym4.jpg"
+        "img": "https://i.ibb.co/J26Gt7J/Washing-Machine-1.png"
     },
     {
         "id": 5,
-        "name": "INTERMEDIATE WORKOUT",
-        "price": "100",
-        "quantity": "10",
-        "supplier": "Fahim Corporation",
+        "name": "AIR CONDITIONER",
+        "price": "300",
+        "quantity": "30",
+        "supplier": "Summit Group",
         "description": "Shock your muscle into growth by rotating this workout with your current routine. I will make your routine and train you properly.",
-        "img": "https://i.ibb.co/jwQQTg2/gym5.jpg"
+        "img": "https://i.ibb.co/RHyDz6Y/Picture2-1.png"
     },
     {
         "id": 6,
-        "name": "PERSONAL TRAINING",
+        "name": "MICROWAVE OVEN",
+        "price": "200",
+        "quantity": "10",
+        "supplier": "Miyako Bangladesh",
+        "description": "I will personally train you to build up your fitness. I will make a routine for you and you have to follow this routine properly.",
+        "img": "https://i.ibb.co/9bBvrqk/oven.png"
+    },
+    {
+        "id": 7,
+        "name": "SMART PHONE",
+        "price": "300",
+        "quantity": "60",
+        "supplier": "KRY International",
+        "description": "I will personally train you to build up your fitness. I will make a routine for you and you have to follow this routine properly.",
+        "img": "https://i.ibb.co/9gbhgFM/mobile.png"
+    },
+    {
+        "id": 8,
+        "name": "PLAY STATION 4",
+        "price": "150",
+        "quantity": "15",
+        "supplier": "Sony Importer",
+        "description": "I will personally train you to build up your fitness. I will make a routine for you and you have to follow this routine properly.",
+        "img": "https://i.ibb.co/3WfjPvz/play-station.jpg"
+    },
+    {
+        "id": 9,
+        "name": "ULTRAWIDE MONITOR",
+        "price": "300",
+        "quantity": "20",
+        "supplier": "Walton Bangladesh",
+        "description": "I will personally train you to build up your fitness. I will make a routine for you and you have to follow this routine properly.",
+        "img": "https://i.ibb.co/LhQH70X/wideMon.png"
+    },
+    {
+        "id": 10,
+        "name": "MICROWAVE OVEN",
         "price": "300",
         "quantity": "10",
         "supplier": "Fahim Corporation",
         "description": "I will personally train you to build up your fitness. I will make a routine for you and you have to follow this routine properly.",
-        "img": "https://i.ibb.co/RDyhZrd/gym6.jpg"
+        "img": "https://i.ibb.co/9bBvrqk/oven.png"
     }
 ]

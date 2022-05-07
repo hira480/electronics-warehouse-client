@@ -7,7 +7,7 @@ const Inventory = () => {
     const [inventoris] = useInventory();
     return (
         <div className='container'>
-            <h2 className='text-center text-primary my-4'>My total inventory: {inventoris.length}</h2>
+            <h2 className='text-center text-primary my-4'>Inventories</h2>
             <div className='inventory-container'>
                 {
                     inventoris.slice(0, 6).map(inventory => <InventoryItem

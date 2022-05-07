@@ -1,0 +1,13 @@
+.inventoryItem {
+    border-radius: 20px;
+    /* padding: 10px; */
+    box-shadow: 5px 10px 15px #bdbbbb;
+}
+
+.inventory-detail {
+    padding: 10px;
+}
+
+.inventoryItem img {
+    border-radius: 20px 20px 0 0;
+}
