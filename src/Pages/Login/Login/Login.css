@@ -2,6 +2,12 @@
     width: 40%;
 }
 
+.form-layout {
+    border-radius: 5px;
+    background-color: #EBF5FB;
+    padding: 30px;
+}
+
 @media only screen and (max-width:576px) {
     .form-width {
         width: 100%;

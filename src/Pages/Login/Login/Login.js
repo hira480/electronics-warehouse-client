@@ -4,6 +4,7 @@ import auth from '../../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './Login.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Loading from '../../../Shared/Loading/Loading';
 
 const Login = () => {
     const location = useLocation();
@@ -17,6 +18,9 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    if (loading) {
+        return <Loading></Loading>
+    }
 
     if (user) {
         navigate(from, { replace: true });
@@ -41,19 +45,16 @@ const Login = () => {
     return (
         <div>
             <h2 className='text-center text-primary pt-3'>Please Login</h2>
-            <div className='container form-width'>
+            <div className='container form-width form-layout'>
                 <Form onSubmit={loginButton}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" name='email' placeholder="Enter email" />
+                        <Form.Control type="email" name='email' placeholder="Enter email" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name='password' placeholder="Password" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
+                        <Form.Control type="password" name='password' placeholder="Password" required />
                     </Form.Group>
                     <Button className='w-100' variant="primary" type="submit">
                         Login

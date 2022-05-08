@@ -1,9 +1,12 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import Loading from '../../../Shared/Loading/Loading';
 
 const Register = () => {
+    const navigate = useNavigate();
 
     const [
         createUserWithEmailAndPassword,
@@ -12,6 +15,13 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
+    if (loading) {
+        return <Loading></Loading>
+    }
+    if (user) {
+        navigate('/home');
+    }
+
     const handelRegister = event => {
         event.preventDefault();
         const name = event.target.name.value;
@@ -19,6 +29,10 @@ const Register = () => {
         const password = event.target.password.value;
 
         createUserWithEmailAndPassword(email, password);
+        navigate('/home');
+    }
+    const navigateLogin = event => {
+        navigate('/login');
     }
 
     return (
@@ -47,6 +61,7 @@ const Register = () => {
                         Register
                     </Button>
                 </Form>
+                <p>Already have an account? <Link to='/login' className='text-primary pe-auto text-decoration-none' onClick={navigateLogin} >Please Login</Link></p>
             </div>
         </div>
     );

@@ -6,6 +6,7 @@ import Footer from './Shared/Footer/Footer';
 import ProductDetail from './Pages/ProductDetail/ProductDetail';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
+import ProtectedRoute from './Pages/Login/ProtectedRoute/ProtectedRoute';
 
 
 function App() {
@@ -15,7 +16,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/inventoryItem/:productId' element={<ProductDetail></ProductDetail>}></Route>
+        <Route path='/inventoryItem/:productId' element={
+          <ProtectedRoute>
+            <ProductDetail></ProductDetail>
+          </ProtectedRoute>
+        }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
       </Routes>
