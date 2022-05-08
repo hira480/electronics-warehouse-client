@@ -1,0 +1,16 @@
+.or {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    color: #95A0A7;
+}
+
+.line {
+    width: 160px;
+    color: #95A0A7;
+}
+
+.btn-width {
+    width: 60%;
+}

@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../../Shared/Loading/Loading';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -63,7 +64,7 @@ const Login = () => {
         <div>
             <h2 className='text-center text-primary pt-3'>Please Login</h2>
             <div className='container form-width form-layout'>
-                <Form onSubmit={loginButton}>
+                <Form onSubmit={loginButton} className='mb-2'>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" ref={emailRef} name='email' placeholder="Enter email" required />
@@ -78,8 +79,9 @@ const Login = () => {
                     </Button>
                 </Form>
                 {errorText}
-                <p>New to my Website? <Link to='/register' className='text-primary pe-auto text-decoration-none' onClick={navigateRegister}>Please Register</Link></p>
+                <p>New to my Website? <Link to='/register' className='text-primary pe-auto text-decoration-none mt-2' onClick={navigateRegister}>Please Register</Link></p>
                 <p>Forget Password?<Button variant="link" className='text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</Button></p>
+                <SocialLogin></SocialLogin>
                 <ToastContainer />
             </div>
         </div>
