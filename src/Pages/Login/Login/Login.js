@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import auth from '../../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './Login.css';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const location = useLocation();
@@ -34,6 +34,10 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     }
 
+    const navigateRegister = event => {
+        navigate('/register');
+    }
+
     return (
         <div>
             <h2 className='text-center text-primary pt-3'>Please Login</h2>
@@ -56,6 +60,7 @@ const Login = () => {
                     </Button>
                 </Form>
                 {errorText}
+                <p>New to my Website? <Link to='/register' className='text-primary pe-auto text-decoration-none' onClick={navigateRegister}>Please Register</Link></p>
             </div>
         </div>
     );
