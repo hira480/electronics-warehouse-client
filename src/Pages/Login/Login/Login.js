@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import auth from '../../../firebase.init';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './Login.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../../Shared/Loading/Loading';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+    const emailRef = useRef('');
     const location = useLocation();
     const navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
@@ -18,7 +21,9 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    if (loading) {
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+    if (loading || sending) {
         return <Loading></Loading>
     }
 
@@ -42,6 +47,18 @@ const Login = () => {
         navigate('/register');
     }
 
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        console.log(email);
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent password reset email');
+        }
+        else {
+            toast('Please enter your email address');
+        }
+    }
+
     return (
         <div>
             <h2 className='text-center text-primary pt-3'>Please Login</h2>
@@ -49,7 +66,7 @@ const Login = () => {
                 <Form onSubmit={loginButton}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" name='email' placeholder="Enter email" required />
+                        <Form.Control type="email" ref={emailRef} name='email' placeholder="Enter email" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -62,6 +79,8 @@ const Login = () => {
                 </Form>
                 {errorText}
                 <p>New to my Website? <Link to='/register' className='text-primary pe-auto text-decoration-none' onClick={navigateRegister}>Please Register</Link></p>
+                <p>Forget Password?<Button variant="link" className='text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</Button></p>
+                <ToastContainer />
             </div>
         </div>
     );
