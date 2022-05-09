@@ -7,7 +7,7 @@ const AddItems = () => {
 
     const onSubmit = data => {
         console.log(data);
-        const url = 'https://safe-tundra-06373.herokuapp.com/product';
+        const url = 'http://localhost:5000/product';
         fetch(url, {
             method: 'POST',
             headers: {

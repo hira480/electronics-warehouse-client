@@ -4,7 +4,7 @@ const useProductDetrails = productId => {
     const [product, setProduct] = useState({});
 
     useEffect(() => {
-        const url = `https://safe-tundra-06373.herokuapp.com/product/${productId}`
+        const url = `http://localhost:5000/product/${productId}`
 
         fetch(url)
             .then(res => res.json())

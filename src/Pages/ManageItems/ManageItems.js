@@ -14,7 +14,7 @@ const ManageItems = () => {
     const handelDelete = id => {
         const proceed = window.confirm('It will also delete from Database. Are you sure you want to delete this Item?');
         if (proceed) {
-            const url = `https://safe-tundra-06373.herokuapp.com/product/${id}`;
+            const url = `http://localhost:5000/product/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -37,9 +37,9 @@ const ManageItems = () => {
                 inventory.map(product =>
                     <div key={product._id} className='product custom-width mx-auto'>
                         <div className='detail d-flex justify-content-between align-items-center'>
-                            <div className='d-flex justify-content-start '>
+                            <div className='d-flex justify-content-center '>
                                 <img height='80px' src={product.img} alt="" />
-                                <div className='justify-content-start align-items-center ms-3'>
+                                <div className='justify-content-center align-items-center ms-3'>
                                     <h6>{product.name}</h6>
                                     <h6>$ <span style={{ color: 'orange' }}>{product.price}</span></h6>
                                     <p className='mb-0'>Quantity: {product.quantity}</p>
