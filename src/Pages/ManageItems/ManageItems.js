@@ -7,8 +7,24 @@ import { useNavigate } from 'react-router-dom';
 const ManageItems = () => {
     const [inventory, setInventory] = useInventory();
     const navigate = useNavigate();
+
     const handelAddItem = e => {
         navigate('/addItems')
+    }
+    const handelDelete = id => {
+        const proceed = window.confirm('It will also delete from Database. Are you sure you want to delete this Item?');
+        if (proceed) {
+            const url = `https://safe-tundra-06373.herokuapp.com/product/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const remaining = inventory.filter(product => product._id !== id);
+                    setInventory(remaining);
+                })
+        }
     }
 
     return (
@@ -30,7 +46,7 @@ const ManageItems = () => {
                                 </div>
                             </div>
                             <div>
-                                <Button variant="danger">Delete</Button>
+                                <Button onClick={() => handelDelete(product._id)} variant="danger">Delete</Button>
                             </div>
                         </div>
                     </div>)

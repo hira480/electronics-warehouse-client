@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 
 const AddItems = () => {
@@ -34,8 +34,6 @@ const AddItems = () => {
                     <textarea className='mb-3' placeholder='Description' {...register("description")} />
                     <input className='mb-3' placeholder='Photo URL' type="text" {...register("img")} />
                     <Button className='w-100' variant="primary" type="submit">Add Item</Button>
-
-                    {/* <input type="submit" value="Add Service" /> */}
                 </form>
             </div>
         </div>
