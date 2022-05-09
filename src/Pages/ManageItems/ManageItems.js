@@ -14,7 +14,7 @@ const ManageItems = () => {
     const handelDelete = id => {
         const proceed = window.confirm('It will also delete from Database. Are you sure you want to delete this Item?');
         if (proceed) {
-            const url = `http://localhost:5000/product/${id}`;
+            const url = `https://safe-tundra-06373.herokuapp.com/product/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

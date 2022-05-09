@@ -1,13 +1,17 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
+import auth from '../../firebase.init';
 
 const AddItems = () => {
     const { register, handleSubmit } = useForm();
+    const [user] = useAuthState(auth);
 
     const onSubmit = data => {
+        // const email = user.email;
         console.log(data);
-        const url = 'http://localhost:5000/product';
+        const url = 'https://safe-tundra-06373.herokuapp.com/product';
         fetch(url, {
             method: 'POST',
             headers: {
@@ -27,6 +31,7 @@ const AddItems = () => {
             <div className=' container form-width form-layout'>
 
                 <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
+                    {/* <input className='mb-3' placeholder='Name' value={user?.email} {...register("email", { required: true, maxLength: 20 })} readOnly /> */}
                     <input className='mb-3' placeholder='Name' {...register("name", { required: true, maxLength: 20 })} />
                     <input className='mb-3' placeholder='Price' type="number" {...register("price")} />
                     <input className='mb-3' placeholder='Quantity' type="number" {...register("quantity")} />
