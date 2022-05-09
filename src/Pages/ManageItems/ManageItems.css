@@ -1,0 +1,10 @@
+.detail h6 {
+    display: inline-block;
+}
+
+.product {
+    border: 1px solid blue;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
@@ -7,6 +7,7 @@ import Loading from '../../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
+    const [agree, setAgree] = useState(false);
     const navigate = useNavigate();
 
     const [
@@ -38,8 +39,8 @@ const Register = () => {
 
     return (
         <div>
-            <h2 className='text-center text-primary pt-3'>Please Register</h2>
-            <div className='container form-width form-layout'>
+            <div className='container form-width form-layout mt-3'>
+                <h2 className='text-center text-primary '>Please Register</h2>
                 <Form onSubmit={handelRegister} className='mb-2'>
                     <Form.Group className="mb-3" controlId="formBasicText">
                         <Form.Label>Your Name</Form.Label>
@@ -55,10 +56,12 @@ const Register = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name='password' placeholder="Password" required />
                     </Form.Group>
+
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
+                        <Form.Check onClick={() => setAgree(!agree)} className={agree ? '' : 'text-danger'} type="checkbox" name='terms' id='terms' label="Accept all conditions." />
                     </Form.Group>
-                    <Button className='w-100' variant="primary" type="submit">
+
+                    <Button disabled={!agree} className='w-100' variant="primary" type="submit">
                         Register
                     </Button>
                 </Form>

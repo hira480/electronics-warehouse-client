@@ -2,6 +2,7 @@ import React from 'react';
 import './inventory.css';
 import useInventory from '../../../hooks/useInventory';
 import InventoryItem from '../InventoryItem/InventoryItem';
+import { Link } from 'react-router-dom';
 
 const Inventory = () => {
     const [inventoris] = useInventory();
@@ -15,6 +16,9 @@ const Inventory = () => {
                         inventory={inventory}
                     ></InventoryItem>)
                 }
+            </div>
+            <div className='text-center mt-5'>
+                <Link className='text-decoration-none' to='/manageItems'>Manage Inventories</Link>
             </div>
         </div>
     );
