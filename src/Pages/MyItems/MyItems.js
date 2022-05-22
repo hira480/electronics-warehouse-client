@@ -10,7 +10,8 @@ const MyItems = () => {
         const getItems = async (data) => {
             const email = user.email;
             const url = `http://localhost:5000/myItems?email=${email}`;
-            fetch(url, {
+            console.log(url);
+            await fetch(url, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

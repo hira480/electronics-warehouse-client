@@ -1,0 +1,21 @@
+.footer {
+    background-color: #061621;
+    color: white;
+    padding-bottom: 0;
+}
+
+.item h6 {
+    margin-bottom: 20px;
+}
+
+.link a {
+    text-decoration: none;
+    display: block;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.link a:hover {
+    color: lightgray;
+}

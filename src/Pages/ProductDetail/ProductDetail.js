@@ -12,9 +12,11 @@ const ProductDetail = () => {
     const [itemQuantity, setItemQuentity] = useState(0);
 
     const manageDelivered = () => {
-        const quantity = parseInt(product.quantity.value);
+        const quantity = product.quantity;
+        console.log(quantity);
         const newQuantity = quantity - 1;
-        setItemQuentity(newQuantity);
+        console.log(newQuantity);
+        setItemQuentity(product.newQuantity);
     }
     const insertItem = event => {
         event.preventDefault();
@@ -26,7 +28,7 @@ const ProductDetail = () => {
         <div>
             <h2 className='text-center text-primary mt-3'>{name}</h2>
             <div className='container mt-5'>
-                <div className='row d-flex justify-content-between align-items-center '>
+                <div className='row d-flex g-4 justify-content-between align-items-center '>
                     <div className='col-md-6 col-sm-12 product-img'>
                         <img className='w-100' src={product.img} alt="" />
                     </div>
@@ -38,7 +40,7 @@ const ProductDetail = () => {
                         <h6>Supplier: {supplier}</h6>
                         <p>{description}</p>
                         <button onClick={() => manageDelivered(itemQuantity)} className='btn btn-success'>Delivered</button>
-                        <div className='form-width'>
+                        <div className='form-width mt-3'>
                             <Form onSubmit={insertItem} className='mt-2'>
                                 <h5>Restoke Item</h5>
                                 <Form.Group className="mb-2" controlId="formBasicText">

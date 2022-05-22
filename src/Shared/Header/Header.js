@@ -1,9 +1,11 @@
 import React from 'react';
+import './Header.css';
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import auth from '../../firebase.init';
 import { Link } from 'react-router-dom';
+import LogoImg from '../../images/LogoImg.png';
 
 const Header = () => {
 
@@ -14,9 +16,11 @@ const Header = () => {
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" sticky='top' variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="dark" sticky='top' variant="dark" className='nav'>
             <Container>
-                <Navbar.Brand as={Link} to="/">ELECTRONICS WAREHOUSE</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/">
+                    <img src={LogoImg} alt="" />
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
@@ -35,7 +39,7 @@ const Header = () => {
                         }
                         {
                             user ?
-                                <Button variant="link" style={{ color: 'rgba(255,255,255,.55)' }} className='text-decoration-none' onClick={handelSignOut}>Sign Out</Button>
+                                <Button variant="link" style={{ color: 'rgba(255,255,255,.55)', fontSize: '18px' }} className='text-decoration-none' onClick={handelSignOut}>Sign Out</Button>
                                 :
                                 <Nav.Link as={Link} to="login">
                                     Login
