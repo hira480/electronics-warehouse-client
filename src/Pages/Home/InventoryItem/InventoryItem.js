@@ -11,12 +11,12 @@ const InventoryItem = ({ inventory }) => {
     return (
         <div className='inventoryItem'>
             <img className='w-100' src={img} alt="" />
-            <div className='inventory-detail'>
-                <h2>{name}</h2>
+            <div className='inventory-detail px-4'>
+                <h3>{name}</h3>
                 <h5>Price: ${price}</h5>
                 <h6>Quantity: {quantity}</h6>
                 <h6>Supplier: {supplier}</h6>
-                <p>{description}</p>
+                <p>{description.slice(0, 40)}..</p>
                 <div className='d-flex justify-content-center my-2'>
                     <button onClick={() => navigateToStockInfo(_id)} className='btn btn-primary'>Stoke Update</button>
                 </div>
