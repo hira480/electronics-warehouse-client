@@ -5,6 +5,8 @@ import Home from './Pages/Home/Home/Home';
 import Footer from './Shared/Footer/Footer';
 import ProductDetail from './Pages/ProductDetail/ProductDetail';
 import Login from './Pages/Login/Login/Login';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Register from './Pages/Login/Register/Register';
 import ProtectedRoute from './Pages/Login/ProtectedRoute/ProtectedRoute';
 import AddItems from './Pages/AddItems/AddItems';
@@ -47,6 +49,7 @@ function App() {
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }

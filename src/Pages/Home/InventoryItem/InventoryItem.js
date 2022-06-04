@@ -13,7 +13,7 @@ const InventoryItem = ({ inventory }) => {
             <img className='w-100' src={img} alt="" />
             <div className='inventory-detail px-4'>
                 <h3>{name}</h3>
-                <h5>Price: ${price}</h5>
+                <h5 className='text-success'>Price: ${price}</h5>
                 <h6>Quantity: {quantity}</h6>
                 <h6>Supplier: {supplier}</h6>
                 <p>{description.slice(0, 40)}..</p>

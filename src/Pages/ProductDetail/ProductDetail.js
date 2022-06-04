@@ -3,26 +3,54 @@ import './ProductDetail.css';
 import { useParams } from 'react-router-dom';
 import useProductDetrails from '../../hooks/useProductDetails';
 import { Button, Form } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const ProductDetail = () => {
     const { productId } = useParams();
-    const [product] = useProductDetrails(productId);
+    const { register, reset, handleSubmit } = useForm();
+    const [product, setProduct] = useProductDetrails(productId);
     const { _id, name, price, quantity, supplier, description } = product;
+    let q = quantity;
 
-    const [itemQuantity, setItemQuentity] = useState(0);
+    const manageDelivered = async (id) => {
+        const deliveredQuantity = quantity - 1;
+        const url = `http://localhost:5000/product/${id}`;
 
-    const manageDelivered = () => {
-        const quantity = product.quantity;
-        console.log(quantity);
-        const newQuantity = quantity - 1;
-        console.log(newQuantity);
-        setItemQuentity(product.newQuantity);
-    }
-    const insertItem = event => {
-        event.preventDefault();
-        const amount = event.target.amount.value;
-        console.log(amount);
-    }
+        const { data } = await axios.put(url, { deliveredQuantity });
+        setProduct(data);
+        toast("Product delivered successfully");
+    };
+
+    const onSubmit = async (fdata) => {
+        if (fdata.quantity > 0) {
+            const deliveredQuantity = parseInt(quantity) + parseInt(fdata.quantity);
+            const url = `http://localhost:5000/product/${_id}`;
+            const { data } = await axios.put(url, { deliveredQuantity });
+            setProduct(data);
+            toast("Quantity added successfully");
+            reset({ quantity: '' });
+        }
+        else {
+            toast.warn("Warning! Quantity can't be less than Zero");
+            reset({ quantity: '' });
+        }
+    };
+
+
+    // const manageDelivered = () => {
+    //     const quantity = product.quantity;
+    //     console.log(quantity);
+    //     const newQuantity = quantity - 1;
+    //     console.log(newQuantity);
+    //     setItemQuentity(product.newQuantity);
+    // }
+    // const insertItem = event => {
+    //     event.preventDefault();
+    //     const amount = event.target.amount.value;
+    //     console.log(amount);
+    // }
 
     return (
         <div>
@@ -39,17 +67,18 @@ const ProductDetail = () => {
                         <h6>Quantity: {quantity}</h6>
                         <h6>Supplier: {supplier}</h6>
                         <p>{description}</p>
-                        <button onClick={() => manageDelivered(itemQuantity)} className='btn btn-success'>Delivered</button>
+
+                        <button disabled={q === 0} onClick={() => manageDelivered(_id)} className='btn btn-success'>Delivered</button>
+
                         <div className='form-width mt-3'>
-                            <Form onSubmit={insertItem} className='mt-2'>
-                                <h5>Restoke Item</h5>
-                                <Form.Group className="mb-2" controlId="formBasicText">
-                                    <Form.Control type="text" name='amount' placeholder="Enter Amount" />
-                                </Form.Group>
-                                <Button variant="primary" type="submit">
-                                    Insert Item
-                                </Button>
-                            </Form>
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                                <input
+                                    placeholder="New Quantity"
+                                    type="number"
+                                    {...register("quantity", { required: true })}
+                                />
+                                <input className='btn btn-primary mt-2' value='Re-Stock' type="submit" />
+                            </form>
                         </div>
                     </div>
                 </div>

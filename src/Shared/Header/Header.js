@@ -16,7 +16,7 @@ const Header = () => {
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='nav'>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='nav py-1'>
             <Container>
                 <Navbar.Brand as={Link} to="/">
                     <img src={LogoImg} alt="" />
@@ -37,9 +37,10 @@ const Header = () => {
                                 <Nav.Link as={Link} to="myItems">My Items</Nav.Link>
                             </>
                         }
+                        <Nav.Link as={Link} to="about">About</Nav.Link>
                         {
                             user ?
-                                <Button variant="link" style={{ color: 'rgba(255,255,255,.55)', fontSize: '18px' }} className='text-decoration-none' onClick={handelSignOut}>Sign Out</Button>
+                                <Button variant="link" style={{ color: 'rgba(255,255,255,.55)', fontSize: '17px' }} className='text-decoration-none' onClick={handelSignOut}>Sign Out</Button>
                                 :
                                 <Nav.Link as={Link} to="login">
                                     Login

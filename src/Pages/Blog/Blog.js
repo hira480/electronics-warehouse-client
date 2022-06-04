@@ -2,9 +2,9 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div>
-            <h2 className='text-primary text-center mt-3'>Blog</h2>
-            <div className='container mt-5 bg-light p-4'>
+        <div className='bg-light'>
+            <h2 className='text-primary text-center pt-4 '>Blog</h2>
+            <div className='container mt-5  p-4'>
                 <div className='mb-4'>
                     <h3>1. What is the Difference between JavaScript and NodeJs?</h3>
                     <p>JavaScript is a programming language that used to write script on the website. JavaScript can run in any browser screen. Its use for frontend development. On the other hand NodeJs is a JavaScript runtime environment. We can run JavaScript outside the browser with the help of NodeJs. NodeJs is specially used for backend development. </p>
