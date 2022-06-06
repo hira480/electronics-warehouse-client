@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
 import './ProductDetail.css';
 import { useParams } from 'react-router-dom';
 import useProductDetrails from '../../hooks/useProductDetails';
-import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -16,7 +14,7 @@ const ProductDetail = () => {
 
     const manageDelivered = async (id) => {
         const deliveredQuantity = quantity - 1;
-        const url = `http://localhost:5000/product/${id}`;
+        const url = `https://safe-tundra-06373.herokuapp.com/product/${id}`;
 
         const { data } = await axios.put(url, { deliveredQuantity });
         setProduct(data);
@@ -26,7 +24,7 @@ const ProductDetail = () => {
     const onSubmit = async (fdata) => {
         if (fdata.quantity > 0) {
             const deliveredQuantity = parseInt(quantity) + parseInt(fdata.quantity);
-            const url = `http://localhost:5000/product/${_id}`;
+            const url = `https://safe-tundra-06373.herokuapp.com/product/${_id}`;
             const { data } = await axios.put(url, { deliveredQuantity });
             setProduct(data);
             toast("Quantity added successfully");
@@ -60,7 +58,7 @@ const ProductDetail = () => {
                     <div className='col-md-6 col-sm-12 product-img'>
                         <img className='w-100' src={product.img} alt="" />
                     </div>
-                    <div className='col-md-6 col-sm-12'>
+                    <div className=' col-md-6 col-sm-12'>
                         <h5>Product Id: {_id}</h5>
                         <h5>Name: {name}</h5>
                         <h6>Price: ${price}</h6>
@@ -73,7 +71,7 @@ const ProductDetail = () => {
                         <div className='form-width mt-3'>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <input
-                                    placeholder="New Quantity"
+                                    placeholder="Insert Amount"
                                     type="number"
                                     {...register("quantity", { required: true })}
                                 />
